@@ -1,0 +1,28 @@
+{
+	 "if": {
+	    "anyOf": [
+		 {
+			"not": {
+			  "anyOf": [
+                    {
+				    "field": "type",
+				    "like": "Microsoft.DocumentDb/databaseAccounts/*"
+				    },
+                    {
+				    "field": "type",
+				    "like": "Microsoft.Storage/storageAccounts/*"
+				    },
+                    {
+				    "field": "type",
+				    "in": ["Microsoft.DocumentDb/databaseAccounts", "Microsoft.Storage/storageAccounts"]
+				    }
+                ]
+			}
+		 },
+
+	  ]
+	},
+	"then": {
+	  "effect": "deny"
+	}
+}
